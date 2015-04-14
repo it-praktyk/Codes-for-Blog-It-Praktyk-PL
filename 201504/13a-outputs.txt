@@ -1,6 +1,4 @@
-Import-Module -Name ActiveDirectory
-Get-ADComputer ex2013-1 -Properties * | select *principal* | Format-List
-
+# Command 2 output
 PrincipalsAllowedToDelegateToAccount : { }
 servicePrincipalName                 : {
     MSServerClusterMgmtAPI/EX2013-1, MSServerClusterMgmtAPI/EX2013-1.EX2013A.LAB,
@@ -12,17 +10,11 @@ ServicePrincipalNames                : {
 }
 UserPrincipalName                    :
 
-$UPNs1 = $(Get-ADComputer ex2013-1 -properties * | select -ExpandProperty servicePrincipalName)
-
-$UPNs2 = $(Get-ADComputer ex2013-1 -properties * | select -ExpandProperty servicePrincipalNames)
-
-$IsEqual = [string]::Compare($UPNs1, $UPNs2, $True)
-
-$IsEqual
+# Command 6 output
 
 0
 
-$UPNs1
+# Command 7 ouput
 
 MSServerClusterMgmtAPI/EX2013-1
 MSServerClusterMgmtAPI/EX2013-1.EX2013A.LAB
